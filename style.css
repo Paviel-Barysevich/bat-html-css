@@ -1,0 +1,149 @@
+.icon {
+    width: 150px;
+    height: 150px;
+}
+
+.bat {
+    --bat-head-color: #6a647f;
+    --bat-head-shadow-color: #484758;
+    --bat-nose-color: #ffb2c1;
+    --bat-nostril-color: #30303a;
+    --bat-eye-color: var(--bat-nostril-color);
+    --cheek-color: #ff889e;
+
+    position: relative;
+}
+
+.bat__ears {
+    --ears-border-width: 20px;
+    --bat-ears-color: radial-gradient(circle, #ffc0cb 40%, #ff6899);
+
+    position: relative;
+    width: 100%;
+    height: 50%;
+}
+
+.bat__ears::before,
+.bat__ears::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: var(--bat-ears-color);
+    border: var(--ears-border-width) solid var(--bat-head-shadow-color);
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 100% ;
+}
+
+.bat__ears::after {
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.bat__head {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 80%;
+    background: var(--bat-head-shadow-color);
+    bottom: 0;
+    border-radius: 50% 50% 32% 31% / 60% 63% 36% 38%;
+}
+
+.bat__head::before {
+    position: absolute;
+    left: 7%;
+    content: "";
+    display: block;
+    width: 93%;
+    height: 100%;
+    background: var(--bat-head-color);
+    border-radius: inherit;
+}
+
+.bat__face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+    height: 25%;
+}
+
+.bat__eye {
+    --cheek-position: 5%;
+
+    position: relative;
+    width: 20%;
+    height: 100%;
+}
+
+.bat__eye::before,
+.bat__eye::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    display: block;
+}
+
+.bat__eye::before {
+    width: 50%;
+    height: 60%;
+    background: var(--bat-eye-color);
+    border-radius: 50%;
+}
+
+.bat__eye::after {
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: var(--cheek-color);
+    border-radius: 50%;
+}
+
+.bat__eye:first-child::after {
+    left: var(--cheek-position);
+}
+
+.bat__eye:last-child::after {
+    left: calc((100% - var(--cheek-position)));
+}
+
+.bat__nose {
+    --nostril-position: 4%;
+    --nostril-rotate-degree: 20deg;
+
+    position: relative;
+    align-self: center;
+    width: 30%;
+    height: 80%;
+    background: var(--bat-nose-color);
+    border-radius:  50% 50% 32% 31% / 60% 63% 36% 38%;
+}
+
+.bat__nose::before,
+.bat__nose::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    display: block;
+    width: 30%;
+    height: 60%;
+    background: var(--bat-nostril-color);
+    border-radius: 50%;
+}
+
+.bat__nose::before {
+    left: var(--nostril-position);
+    rotate: var(--nostril-rotate-degree);
+}
+
+.bat__nose::after {
+    right: var(--nostril-position);
+    rotate: calc(var(--nostril-rotate-degree) * (-1));
+}
